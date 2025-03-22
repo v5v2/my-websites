@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>加入QQ群</title>
+    <style>
+        body { text-align: center; padding: 20px; }
+        .qrcode { width: 200px; margin: 20px auto; }
+        .copy-btn { 
+            background: #00a3ff; 
+            color: white; 
+            padding: 10px 20px; 
+            border-radius: 5px; 
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h2>扫码或手动加群</h2>
+    <!-- 显示QQ群二维码（可选） -->
+    <img src="qq-group-qr.png" class="qrcode">
+    <!-- 显示群号并提供复制功能 -->
+    <p>群号：<span id="groupNum">920903120</span></p>
+    <button class="copy-btn" onclick="copyText()">一键复制群号</button>
+    <br>
+    <!-- 跳转加群链接按钮 -->
+    <a href="https://jq.qq.com/?_wv=1027&k=TE30RGSdlDV-bleP7BARErzfSMrWyAIg&authKey=8zczDpFynt0f1mFUKTdEP1eB7vljkBZzQDqEf8Ai%2BJbqr5Nhl5kwStC%2BcGKvctWg&noverify=0&group_code=920903120
+Key" style="display: block; margin-top: 20px;">
+        <button class="copy-btn">点击直接加群</button>
+    </a>
+
+    <script>
+        function copyText() {
+            const input = document.createElement('input');
+            input.value = document.getElementById('groupNum').innerText;
+            document.body.appendChild(input);
+            input.select();
+            document.execCommand('Copy');
+            document.body.removeChild(input);
+            alert('群号已复制，打开QQ即可加群！');
+        }
+    </script>
+</body>
+</html>
